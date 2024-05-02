@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+compileJava.options.encoding('UTF-8')
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    def lombok = 'org.projectlombok:lombok:1.18.30'
+
+    compileOnly(lombok)
+    annotationProcessor(lombok)
+
+    // Adicionando as JARs
+    compileOnly files(
+            'C:/API/pandaspigot.jar',
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
