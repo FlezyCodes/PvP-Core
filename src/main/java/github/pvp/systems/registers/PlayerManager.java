@@ -4,5 +4,5 @@ import org.bukkit.entity.Player;
 
 public interface PlayerManager {
 
-    void registrar(Player player);
+    void register(Player player);
 }

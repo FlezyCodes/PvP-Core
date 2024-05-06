@@ -11,10 +11,10 @@ import org.bukkit.entity.Player;
 @AllArgsConstructor
 public class JoinHandler extends EventHandler {
 
-    private final Player player;
+    public final Player player;
 
     public void register(Player player){
         PlayerManager manager = new LoadPlayer();
-        manager.registrar(player);
+        manager.register(player);
     }
 }
