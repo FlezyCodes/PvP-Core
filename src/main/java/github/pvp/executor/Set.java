@@ -13,19 +13,19 @@ public class Set implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (!(commandSender instanceof Player))
-            commandSender.sendMessage(STR."\{new PrefixManager().getConsoleCatch()}");
+            commandSender.sendMessage(new PrefixManager().getConsoleCatch());
 
         Player player = (Player) commandSender;
         if (player.hasPermission("pvp.set")) {
             if (strings.length == 0) {
-                player.sendMessage(STR."\{new PrefixManager().getPrefix()} §aUso correto /set {Localizacao}");
+                player.sendMessage(new PrefixManager().getPrefix() + "§aUso correto /set {Localizacao}");
                 return false;
             }
             Manager.location.setLocation(player.getLocation(), strings[0]);
-            player.sendMessage(STR."§aVoce setou loc ( \{strings[0]} )");
+            player.sendMessage("§aVoce setou loc ( "+ strings[0] +"  )");
             return false;
         } else {
-            player.sendMessage(STR."\{new PrefixManager().getNoPermission()}");
+            player.sendMessage(new PrefixManager().getNoPermission());
         }
         return false;
     }

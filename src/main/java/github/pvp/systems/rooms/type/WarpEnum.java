@@ -3,10 +3,12 @@ package github.pvp.systems.rooms.type;
 import github.pvp.Manager;
 import github.pvp.builder.CreateItem;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+@Getter
 @AllArgsConstructor
 public enum WarpEnum {
 

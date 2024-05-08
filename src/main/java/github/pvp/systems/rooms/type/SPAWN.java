@@ -26,7 +26,7 @@ public class SPAWN extends Room {
         if (!Manager.location.hasLocation("spawn")) {
             for (Player staff : Bukkit.getOnlinePlayers()) {
                 if (staff.hasPermission("pvp.set")) {
-                    staff.sendMessage(STR."§cSpawn foi setado, use /set  \{getName()}");
+                    staff.sendMessage(getName()+ "§cnao foi setado.");
                 }
             }
         } else {
@@ -51,7 +51,7 @@ public class SPAWN extends Room {
 
     @Override
     public void message(Player player) {
-        String[] message = {STR."§aSeja bem vindo ao \{new PrefixManager().getName()}"};
+        player.sendMessage("§aSeja bem vindo ao  " + new PrefixManager().getName());
 
 
     }

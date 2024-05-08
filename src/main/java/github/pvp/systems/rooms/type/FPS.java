@@ -18,7 +18,7 @@ public class FPS extends Room {
         if(!Manager.location.hasLocation(getName())){
             for (Player staff : Bukkit.getOnlinePlayers()) {
                 if (staff.hasPermission("pvp.set")) {
-                    staff.sendMessage(STR."§c\{getName()} nao foi setado, use /set  \{getName()}");
+                    staff.sendMessage(getName() + " nao foi setado.");
                 }
             }
         }else{

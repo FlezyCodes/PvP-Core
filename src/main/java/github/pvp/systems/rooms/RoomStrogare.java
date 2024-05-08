@@ -19,7 +19,7 @@ public class RoomStrogare {
 
     public static void setWarp(Player player, String warp){
         warps.put(player.getUniqueId(), warp);
-        System.out.println(STR."Jogador  + \{player.getName()}   foi inviado de warp \{getWarp(player)} para \{warp}");
+        System.out.println("Jogador " + player.getName()+ " foi inviado de warp " + getWarp(player) + " para   " + warp);
     }
 
     public static void save(Room room){
