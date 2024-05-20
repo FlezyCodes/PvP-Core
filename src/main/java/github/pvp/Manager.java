@@ -1,13 +1,15 @@
 package github.pvp;
 
+import github.pvp.account.Account;
+import github.pvp.listeners.register.ListenerHandler;
 import github.pvp.loader.CommandLoader;
-import github.pvp.loader.EventLoader;
-import github.pvp.loader.RoomLoader;
 import github.pvp.yaml.Config;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-
+@Getter
 public class Manager extends JavaPlugin {
+
 
     public static Manager instance;
     public static Config location;
@@ -18,13 +20,8 @@ public class Manager extends JavaPlugin {
         instance = this;
         location = new Config(this);
 
-
-        commandLoader.load(this);
-
-
-//      new CommandLoader();
-        new EventLoader();
-        new RoomLoader();
+        new CommandLoader().load(this);
+        new ListenerHandler(this).load("github.pvp.listeners");
 
     }
 

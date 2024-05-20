@@ -20,6 +20,7 @@ dependencies {
     // Adicionando as JARs
     compileOnly files(
             'C:/API/pandaspigot.jar',
+            'C:/API/ProtocolLib.jar'
     )
 }
 
