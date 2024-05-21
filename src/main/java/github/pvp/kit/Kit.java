@@ -1,23 +1,31 @@
 package github.pvp.kit;
 
+import github.pvp.Manager;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @AllArgsConstructor
 @Getter
-public  class Kit {
+public  abstract class Kit {
 
-    String name;
-    ItemStack material;
-    int slot;
-    public void join(Player player){
+    KitType kitType;
+    private final Set<Player> players = new HashSet<>();
+    private final ItemStack material;
+    private final int slot;
 
+
+    public abstract void join(Player player);
+
+    public abstract void exit(Player player);
+    public abstract void hotbar(Player player);
+
+    public Location getLocation() {
+        return Manager.location.getLocation(kitType.name().toLowerCase());
     }
-    public void leave(Player player){
-
-    }
-
 }

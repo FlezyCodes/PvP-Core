@@ -3,6 +3,7 @@ package github.pvp;
 import github.pvp.manager.AccountManager;
 import github.pvp.listeners.register.ListenerHandler;
 import github.pvp.loader.CommandLoader;
+import github.pvp.manager.KitManager;
 import github.pvp.manager.WarpManager;
 import github.pvp.yaml.Config;
 import lombok.Getter;
@@ -21,12 +22,20 @@ public class Manager extends JavaPlugin {
     @Getter
     private static WarpManager warpManager;
 
+    @Getter
+    private static KitManager kitManager;
+
     @Override
     public void onEnable() {
         instance = this;
         location = new Config(this);
+
+
         warpManager = new WarpManager();
         warpManager.load(this);
+
+        kitManager = new KitManager();
+        kitManager.load(this);
 
         new CommandLoader().load(this);
         new ListenerHandler(this).load("github.pvp.listeners");
