@@ -1,0 +1,7 @@
+name: PvP
+authors: [FlezyCodes , Rafael Auler]
+main: github.pvp.Manager
+version: 1.0
+commands:
+  set:
+  warp:
