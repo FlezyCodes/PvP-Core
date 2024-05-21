@@ -1,49 +1,67 @@
 package github.pvp.account;
 
-
-import github.pvp.kit.Kit;
+import github.pvp.Manager;
+import github.pvp.systems.rooms.Warp;
+import github.pvp.systems.rooms.WarpType;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.UUID;
+    @Getter
+    @Setter
+    @RequiredArgsConstructor
+    public class Account {
 
-@Getter
-@Setter
-public class Account {
+        private final UUID id;
+        private final String name;
 
-    private final static Set<Account> list = new HashSet<>();
+        private WarpType warpType = WarpType.SPAWN;
 
-    private final Player player;
+        public Player getPlayer() {
+            return Bukkit.getPlayer(id);
+        }
 
-    private Kit kit;
-//    private WarpManager warp;
+        public Warp getWarp() {
+            return Manager.getWarpManager().read(warpType);
+        }
 
-    public Account(Player player) {
-        this.player = player;
+        public void sendWarp(WarpType type) {
+            Player player = getPlayer();
 
-        list.add(this);
-    }
+            if (player == null) return;
 
-    public static Account readKit(UUID id) {
-        return list.stream().filter(user -> user.getPlayer().getUniqueId().equals(id)).findFirst().orElse(null);
-    }
+            if (inWarp(type)) {
+                player.sendMessage("§cVocê já está na warp " + type.name() + "!");
+                return;
+            }
 
-    public static void removeKit(UUID id) {
-        list.removeIf(user -> user.getPlayer().getUniqueId().equals(id));
-    }
+            Warp current = Manager.getWarpManager().read(warpType), warp = Manager.getWarpManager().read(type);
 
-    public boolean hasKit() {
-        return kit != null;
-    }
+            if (warp == null) {
+                player.sendMessage("§cA warp solicitada não foi encontrada.");
+                return;
+            }
 
-    public boolean hasKit(String name) {
-        return hasKit() && kit.getName().equalsIgnoreCase(name);
-    }
+            if (warp.getLocation() == null) {
+                player.sendMessage("§cA localização da warp " + type.name() + " não foi encontrada.");
+                return;
+            }
 
+            if (current != null)
+                current.exit(player);
 
+            warp.join(player);
+            setWarpType(type);
 
+            player.teleport(warp.getLocation());
 
+            player.sendMessage("§aVocê foi enviado para a warp " + type.name());
+        }
+
+        public boolean inWarp(WarpType warp) {
+            return warpType.equals(warp);
+        }
 }
