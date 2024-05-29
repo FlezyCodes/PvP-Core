@@ -23,16 +23,16 @@ public class KitManager {
         plugin.getLogger().info("Registrando Warps...");
 
         int loaded = 0;
-        for (Class<?> warpClass : ClassLoader.getClassesForPackage(plugin, "github.pvp.systems.rooms.type")) {
-            if (Warp.class.isAssignableFrom(warpClass)) {
+        for (Class<?> kitClass : ClassLoader.getClassesForPackage(plugin, "github.pvp.kit.type")) {
+            if (Warp.class.isAssignableFrom(kitClass)) {
                 try {
-                    Kit kits = (Kit) warpClass.newInstance();
+                    Kit kits = (Kit) kitClass.newInstance();
 
                     kit.add(kits);
 
                     loaded++;
                 } catch (Exception e) {
-                    plugin.getLogger().log(Level.WARNING, "Não foi possível registrar a warp " + warpClass.getSimpleName(), e);
+                    plugin.getLogger().log(Level.WARNING, "Não foi possível registrar a warp " + kitClass.getSimpleName(), e);
                 }
             }
         }

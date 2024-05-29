@@ -7,7 +7,7 @@ package github.pvp.systems.animation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Animation {
+public class WaveScroller {
     private String string;
 
     private List<String> strings;
@@ -16,11 +16,11 @@ public class Animation {
 
     private boolean bool;
 
-    public Animation(String text, String c1, String c2, String c3) {
+    public WaveScroller(String text, String c1, String c2, String c3) {
         this(text, c1, c2, c3, 12);
     }
 
-    public Animation(String text, String c1, String c2, String c3, int p) {
+    public WaveScroller(String text, String c1, String c2, String c3, int p) {
         this.string = text;
         this.strings = new ArrayList<>();
         createFrames(c1, c2, c3, p);

@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 
 import java.util.Arrays;
 
-public class Warp implements CommandExecutor {
+public class WarpCMD implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {

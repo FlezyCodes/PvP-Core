@@ -7,5 +7,5 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum KitType {
-    NONE,PVP;
+    NONE,SPAWN,PVP;
 }

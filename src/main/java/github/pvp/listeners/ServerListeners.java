@@ -2,12 +2,10 @@ package github.pvp.listeners;
 
 import github.pvp.Manager;
 import github.pvp.account.Account;
-import github.pvp.kit.KitType;
+import github.pvp.listeners.register.ListenerManager;
 import github.pvp.manager.AccountManager;
-import github.pvp.systems.login.LoginAPI;
-import github.pvp.systems.rooms.WarpType;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -17,6 +15,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.server.ServerListPingEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class ServerListeners implements Listener {
@@ -27,10 +26,11 @@ public class ServerListeners implements Listener {
     @EventHandler
     void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        Account account = new Account(player.getUniqueId(), player.getName());
-        accountManager.save(account);
-        account.sendWarp(WarpType.SPAWN);
-        account.setKit(KitType.NONE);
+
+        ListenerManager manager = new ListenerManager();
+        Account account = accountManager.read(player.getUniqueId());
+
+        manager.setupWarp(account);
 
     }
 
@@ -50,7 +50,7 @@ public class ServerListeners implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerInteract(PlayerInteractEvent e) {
         Player p = e.getPlayer();
-        if(e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
+        if (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
             double i = p.getHealth();
             if (i >= 20) {
                 return;
@@ -70,8 +70,17 @@ public class ServerListeners implements Listener {
     }
 
     @EventHandler
-    public void onLogin(PlayerLoginEvent event){
+    public void onLogin(PlayerLoginEvent event) {
 
+    }
+
+    @EventHandler
+    public void motd(ServerListPingEvent event) {
+        if (Bukkit.getServer().hasWhitelist()) {
+            event.setMotd(" §6§lKitPVP §f §lMC  §7(1.8.*)\n §cServidor em manuten  o!");
+        } else {
+            event.setMotd(" 6§lKitPVP §f §lMC  §7(1.8.*)\n §fwww.smartmc-pvp.com");
+        }
     }
 
 }

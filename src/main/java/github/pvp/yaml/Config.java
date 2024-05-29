@@ -48,10 +48,6 @@ public class Config {
     }
 
 
-    public boolean correctPassword(Player player){
-        return configfile.contains(player.getName());
-    }
-
     public void setLocation(Location loc, String locname) {
         configfile.set("Locations." + locname + ".world", loc.getWorld().getName());
         configfile.set("Locations." + locname + ".x", loc.getX());

@@ -15,7 +15,7 @@ public class InventoryKits {
     public static String name = "§aKits";
 
 
-    public static void Ope(Player player) {
+    public static void Open(Player player) {
         Inventory inventory = Bukkit.createInventory(null, 4 * 9, "§aKits");
 
 

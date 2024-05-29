@@ -12,4 +12,9 @@ public class ActionBar {
         PacketPlayOutChat packetplayoutchat = new PacketPlayOutChat(ichatbasecomponent, (byte) 2);
         craftplayer.getHandle().playerConnection.sendPacket(packetplayoutchat);
     }
+
+    String message[] = {"Uso correto ",
+    "",
+    "",
+    ""};
 }

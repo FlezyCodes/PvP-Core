@@ -9,7 +9,7 @@ import lombok.Setter;
 public class PrefixManager {
 //FLEZY
 
-    String name, prefix, consoleCatch, playerOffline, noPermission;
+    String name, prefix, consoleCatch, playerOffline, noPermission, website;
 
 
     {
@@ -18,6 +18,7 @@ public class PrefixManager {
         consoleCatch = "§cConsole nao pode executar este commando";
         playerOffline = "§cJogador nao estar online";
         noPermission = "§cVoce nao possui permissao.";
+        website = "landsmc.com";
     }
 
 

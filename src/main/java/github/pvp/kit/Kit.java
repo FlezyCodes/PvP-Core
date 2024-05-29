@@ -21,7 +21,6 @@ public  abstract class Kit {
 
 
     public abstract void join(Player player);
-
     public abstract void exit(Player player);
     public abstract void hotbar(Player player);
 

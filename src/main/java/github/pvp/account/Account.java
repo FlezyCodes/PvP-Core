@@ -52,7 +52,7 @@ public class Account {
             Kit current = Manager.getKitManager().read(kitType), kit = Manager.getKitManager().read(type);
 
             if (kit == null) {
-                player.sendMessage("§cA warp solicitada não foi encontrada.");
+                player.sendMessage("§cO Kit disponivel.");
                 return;
             }
 
@@ -62,7 +62,7 @@ public class Account {
 
             kit.join(player);
 
-            player.sendMessage("§aVocê foi enviado para a warp " + type.name());
+//            player.sendMessage("§aVocê foi enviado para a warp " + type.name());
 
         }
 

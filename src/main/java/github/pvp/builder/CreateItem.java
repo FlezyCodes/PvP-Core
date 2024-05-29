@@ -12,8 +12,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 public class CreateItem {
 
-    public static ItemStack itemStack(Material material, String nome, String lore, Enchantment enchant,
-                                      int levelEnchant) {
+    public static ItemStack itemStack(Material material, String nome, String lore, Enchantment enchant, int levelEnchant) {
         ItemStack item = new ItemStack(material);
         item.addUnsafeEnchantment(enchant, levelEnchant);
         ItemMeta itemmeta = item.getItemMeta();
