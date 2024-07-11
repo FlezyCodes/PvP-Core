@@ -1,6 +1,6 @@
 package github.pvp.executor;
 
-import github.pvp.Manager;
+import github.pvp.Main;
 import github.pvp.design.PrefixManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -21,7 +21,7 @@ public class Set implements CommandExecutor {
                 player.sendMessage(new PrefixManager().getPrefix() + "§aUso correto /set {Localizacao}");
                 return false;
             }
-            Manager.location.setLocation(player.getLocation(), strings[0]);
+            Main.location.setLocation(player.getLocation(), strings[0]);
             player.sendMessage("§aVoce setou loc ( "+ strings[0] +"  )");
             return false;
         } else {

@@ -1,6 +1,6 @@
 package github.pvp.systems.rooms;
 
-import github.pvp.Manager;
+import github.pvp.Main;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Location;
@@ -25,7 +25,7 @@ public abstract class Warp {
     public abstract void exit(Player player);
 
     public Location getLocation() {
-        return Manager.location.getLocation(type.name().toLowerCase());
+        return Main.location.getLocation(type.name().toLowerCase());
     }
 
 }

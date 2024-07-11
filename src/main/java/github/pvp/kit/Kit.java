@@ -1,6 +1,6 @@
 package github.pvp.kit;
 
-import github.pvp.Manager;
+import github.pvp.Main;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.bukkit.Location;
@@ -25,6 +25,6 @@ public  abstract class Kit {
     public abstract void hotbar(Player player);
 
     public Location getLocation() {
-        return Manager.location.getLocation(kitType.name().toLowerCase());
+        return Main.location.getLocation(kitType.name().toLowerCase());
     }
 }

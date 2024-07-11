@@ -20,7 +20,7 @@ public class KitManager {
     public void load(JavaPlugin plugin) {
         Instant now = Instant.now();
 
-        plugin.getLogger().info("Registrando Warps...");
+        plugin.getLogger().info("Registrando kits...");
 
         int loaded = 0;
         for (Class<?> kitClass : ClassLoader.getClassesForPackage(plugin, "github.pvp.kit.type")) {

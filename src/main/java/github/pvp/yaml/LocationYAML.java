@@ -1,22 +1,21 @@
 package github.pvp.yaml;
 
-import github.pvp.Manager;
+import github.pvp.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
 import java.io.File;
-import java.util.UUID;
 
 
-public class Config {
+public class LocationYAML {
 
-    public Manager main;
+    public Main main;
     private File file;
     private YamlConfiguration configfile;
 
-    public Config(Manager loader) {
+    public LocationYAML(Main loader) {
         this.main = loader;
         load();
     }

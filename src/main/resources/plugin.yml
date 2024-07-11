@@ -1,9 +1,11 @@
 name: PvP
-authors: [FlezyCodes , Rafael Auler]
-main: github.pvp.Manager
+author: FlezyCodes
+main: github.pvp.Main
 version: 1.0
 depend:
   - ProtocolLib
 commands:
   set:
   warp:
+  register:
+  changepass:

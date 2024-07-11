@@ -1,8 +1,8 @@
 package github.pvp.listeners;
 
-import github.pvp.Manager;
+import github.pvp.Main;
 import github.pvp.account.Account;
-import github.pvp.listeners.register.ListenerManager;
+import github.pvp.design.PrefixManager;
 import github.pvp.manager.AccountManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -21,16 +21,14 @@ import org.bukkit.inventory.ItemStack;
 public class ServerListeners implements Listener {
 
 
-    private final AccountManager accountManager = Manager.getAccountManager();
+    private final AccountManager accountManager = Main.getAccountManager();
 
     @EventHandler
     void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        ListenerManager manager = new ListenerManager();
         Account account = accountManager.read(player.getUniqueId());
 
-        manager.setupWarp(account);
 
     }
 
@@ -79,7 +77,7 @@ public class ServerListeners implements Listener {
         if (Bukkit.getServer().hasWhitelist()) {
             event.setMotd(" §6§lKitPVP §f §lMC  §7(1.8.*)\n §cServidor em manuten  o!");
         } else {
-            event.setMotd(" 6§lKitPVP §f §lMC  §7(1.8.*)\n §fwww.smartmc-pvp.com");
+            event.setMotd(" 6§lKitPVP §f §lMC  §7(1.8.*)\n §fwww " + new PrefixManager().getWebsite() + ".com");
         }
     }
 

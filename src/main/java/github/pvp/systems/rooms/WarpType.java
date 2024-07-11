@@ -6,5 +6,5 @@ import lombok.Getter;
     @Getter
     @AllArgsConstructor
     public enum WarpType {
-        LOGIN,SPAWN, FPS, LAVA;
+       LOBBY, LOGIN,SPAWN, FPS, LAVA;
 }

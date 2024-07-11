@@ -1,6 +1,6 @@
 package github.pvp.executor;
 
-import github.pvp.Manager;
+import github.pvp.Main;
 import github.pvp.account.Account;
 import github.pvp.design.PrefixManager;
 import github.pvp.systems.rooms.WarpType;
@@ -28,7 +28,7 @@ public class WarpCMD implements CommandExecutor {
             player.sendMessage(message);
             return false;
         }
-        Account account = Manager.getAccountManager().read(player.getUniqueId());
+        Account account = Main.getAccountManager().read(player.getUniqueId());
 
         WarpType type = Arrays.stream(WarpType.values()).filter(warp -> warp.name().equalsIgnoreCase(strings[0])).findFirst().orElse(null);
 

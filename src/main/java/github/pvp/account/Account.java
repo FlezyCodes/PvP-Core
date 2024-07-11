@@ -1,6 +1,6 @@
 package github.pvp.account;
 
-import github.pvp.Manager;
+import github.pvp.Main;
 import github.pvp.kit.Kit;
 import github.pvp.kit.KitType;
 import github.pvp.systems.rooms.Warp;
@@ -31,13 +31,13 @@ public class Account {
     }
 
     public Warp getWarp() {
-        return Manager.getWarpManager().read(warpType);
+        return Main.getWarpManager().read(warpType);
     }
 
 
 
         public Kit getKit () {
-            return Manager.getKitManager().read(kitType);
+            return Main.getKitManager().read(kitType);
         }
         public void setKit(KitType type){
             Player player = getPlayer();
@@ -49,7 +49,7 @@ public class Account {
                 return;
             }
 
-            Kit current = Manager.getKitManager().read(kitType), kit = Manager.getKitManager().read(type);
+            Kit current = Main.getKitManager().read(kitType), kit = Main.getKitManager().read(type);
 
             if (kit == null) {
                 player.sendMessage("§cO Kit disponivel.");
@@ -80,7 +80,7 @@ public class Account {
             return;
         }
 
-        Warp current = Manager.getWarpManager().read(warpType), warp = Manager.getWarpManager().read(type);
+        Warp current = Main.getWarpManager().read(warpType), warp = Main.getWarpManager().read(type);
 
         if (warp == null) {
             player.sendMessage("§cA warp solicitada não foi encontrada.");

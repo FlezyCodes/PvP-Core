@@ -24,6 +24,8 @@ public class Spawn extends Warp {
 
         CreateItem.setItem(player, 5, CreateItem.itemStack(Material.ENDER_CHEST, inventoryName));
         getPlayers().add(player);
+        player.sendMessage(getDescription().toArray(new String[0]));
+        player.sendMessage("Jogadores no"  + getPlayers().size());
     }
 
     @Override
